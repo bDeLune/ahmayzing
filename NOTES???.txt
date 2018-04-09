@@ -1,0 +1,10 @@
+
+installed Vue command line interface (\cf4 \cb5 npm install -g @vue/cli\
+
+went to ahmayzing folder, installed new Vue project 
+
+vue init webpack
+
+made localhost:8080 the main server via the config files\
+
+Test run (npm run dev)}

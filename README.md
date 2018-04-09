@@ -26,4 +26,39 @@ npm run e2e
 # run all tests
 npm test
 ```
-For a detailed explanation on how things work, check out the [guide](http://vuejs-templates.github.io/webpack/) and [docs for vue-loader](http://vuejs.github.io/vue-loader).
+
+
+## GIT Stuff
+
+``` bash
+
+# go to wherever your project folder is
+cd Desktop
+cd ahmayzing 	
+
+SETUP GIT (I think!)
+
+# download clone of master from github
+
+# setup git in folder
+git init
+
+# add all files to next commit
+git remote add origin https://github.com/bDeLune/ahmayzing.git
+
+
+COMMIT TO GITHUB
+
+# add all files to next commit
+git add --all
+
+# check that all files are added (you can skip this)
+git status
+
+# prepare the commit
+git commit -m "Description of commit"
+
+# push to master branch on github
+git push -u origin master
+
+```
