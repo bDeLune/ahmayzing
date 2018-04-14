@@ -6,6 +6,8 @@
 </template>
 
 <script>
+import navigation from './components/testAudio.vue'
+
 export default {
   name: 'App'
 }
