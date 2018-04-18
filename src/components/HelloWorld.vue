@@ -1,7 +1,6 @@
 <template>
   <div class="hello">
     <h1>{{ msg }}</h1>
-    <h2>test</h2>
   </div>
 </template>
 
@@ -19,7 +18,7 @@ export default {
   name: 'HelloWorld',
   data () {
     return {
-      msg: 'Shwate'
+      msg: 'all your bass are belong to us'
     }
   }
 }
