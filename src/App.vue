@@ -30,6 +30,8 @@ body{
   padding: 20% 0 0 120px;
 }
 
+
+
 h1{
   color: rgba(22, 1, 141, 0.548);
 }

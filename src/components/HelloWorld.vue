@@ -1,21 +1,16 @@
 <template>
   <div class="hello">
     <h1>{{ msg }}</h1>
+        <testAudio></testAudio>
   </div>
 </template>
 
-
-//Begin Web Audio API context
-let audioContext
-if(window.AudioContext) {
-  audioContext = new AudioContext()
-} else {
-  audioContext = new webkitAudioContext()
-}
-
 <script>
+import testAudio from './testAudio.vue';
+
 export default {
   name: 'HelloWorld',
+  components:{testAudio},
   data () {
     return {
       msg: 'all your bass are belong to us'
@@ -40,4 +35,5 @@ li {
 a {
   color: #42b983;
 }
+
 </style>
