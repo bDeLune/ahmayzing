@@ -5,11 +5,17 @@
   </div>
 </template>
 
+
 <script>
-import navigation from './components/testAudio.vue'
+import navigation from './components/mainAudio.vue'
+import Vue from 'vue'
+import VueKnobControl from 'vue-knob-control'
+//Installed plugin via npm, added these two lines to install
+//Have yet to implement
+Vue.use(VueKnobControl)
 
 export default {
-  name: 'App'
+  name: 'App',
 }
 </script>
 
@@ -29,8 +35,6 @@ body{
 #logo{
   padding: 20% 0 0 120px;
 }
-
-
 
 h1{
   color: rgba(22, 1, 141, 0.548);

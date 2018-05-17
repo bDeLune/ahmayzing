@@ -1,27 +1,34 @@
 <template>
-  <div id="testAudio">
-    <button v-on:click="createTestAudio">TEST! </button>
-      <div>Make sure your volume is turned down before pressing this</div>
+  <div id="mainAudio">
+    <button v-on:click="testAudio">TEST! </button>
+    <div>Make sure your volume is turned down before pressing this</div>
   </div>
 </template>
-
 <script>
+
+
+let audioCtx
+if(window.AudioContext) {
+  audioCtx = new AudioContext()
+} else {
+  audioCtx = new webkitAudioContext()
+}
+
+//create gain nodes for volume control
+let gainNodeA = audioCtx.createGain();
+let gainNodeB = audioCtx.createGain();
+let gainNodeMaster = audioCtx.createGain();
+
 export default {
-  name: 'testAudio',
+  name: 'mainAudio',
   data () {
     return {
-      msg: 'Test Audio',
-      contextCreated: false,
+      msg: 'Main audio context'
     }
   },
       // Functions we will be using.
   methods: {
-      createTestAudio: function(){
-        
-        //Create audio context - should probably do this in our main component
-        var audioCtx = new AudioContext()
-        this.contextCreated = true;
-  
+      testAudio: function(){
         //create sine wave node
         var sineA = audioCtx.createOscillator();
         sineA.frequency.value = 440;
@@ -29,23 +36,27 @@ export default {
 
         //create sine wave node
         var sineB = audioCtx.createOscillator();
-        sineB.frequency.value = 523.25;
+        sineB.frequency.value = 220.00;
         sineB.type = "sine";
-
-        //create gain node for volume control, not implemented yet
-        var gainNodeA = audioCtx.createGain();
+        
         var masterOut = audioCtx.destination;
 
         if (audioCtx){
           console.log('Audio context created successfully')
-          //connect both sine waves to master out node and play
+          //connect both sine waves to their respective gain nodes
           sineA.start();
-          sineA.connect(masterOut);
+          sineA.connect(gainNodeA);
 
           sineB.start();
-          sineB.connect(masterOut); 
+          sineB.connect(gainNodeB); 
+
+          //connect gain nodes to master gain node
+          gainNodeA.connect(gainNodeMaster); 
+          gainNodeB.connect(gainNodeMaster); 
+
+          gainNodeMaster.connect(masterOut);
         }else{
-          console.log('problem creating audio context')
+          console.log('audio context doesnt exist')
         }
       }
   }
@@ -95,6 +106,5 @@ button:hover {
   background-image: linear-gradient(to bottom, #3cb0fd, #3498db);
   text-decoration: none;
 }
-
 
 </style>

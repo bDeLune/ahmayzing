@@ -1,16 +1,16 @@
 <template>
   <div class="hello">
     <h1>{{ msg }}</h1>
-        <testAudio></testAudio>
+        <mainAudio></mainAudio>
   </div>
 </template>
 
 <script>
-import testAudio from './testAudio.vue';
+import mainAudio from './mainAudio.vue';
 
 export default {
   name: 'HelloWorld',
-  components:{testAudio},
+  components:{mainAudio},
   data () {
     return {
       msg: 'all your bass are belong to us'

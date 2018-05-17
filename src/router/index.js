@@ -1,7 +1,7 @@
 import Vue from 'vue'
 import Router from 'vue-router'
 import HelloWorld from '@/components/HelloWorld'
-import TestAudio from '@/components/testAudio'
+import mainAudio from '@/components/mainAudio'
 
 Vue.use(Router)
 
